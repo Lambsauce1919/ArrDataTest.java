@@ -43,8 +43,8 @@ public class ArrDataTest {
 			if (userResponse.equalsIgnoreCase("yes")) {
 				removalCall = true;
 					System.out.println("\nWhich element would you like to remove?\nYou can remove items 0 through " + (myData.size() - 1) + ".");
-						numInp = inputMismatchInt(scan);
-						numInp = ensureBoundNotExceeded(numInp, (myData.size() - 1), removalCall, additionCall);
+					numInp = inputMismatchInt(scan);
+					numInp = ensureBoundNotExceeded(numInp, (myData.size() - 1), removalCall, additionCall, scan);
 							System.out.println("\nYou are removing item: " + myData.get(numInp));
 								myData.remove(numInp);
 									System.out.println("\nHere's your new list, sorted: \n" + myData);
@@ -53,7 +53,7 @@ public class ArrDataTest {
 		
 		// Demonstrate a strong understanding of the .add class.
 		
-		System.out.println("\nWould you like to add a new element in a spot of your chosing?\n");
+		System.out.println("\nWould you like to add a new element in a spot of your chosing?\nYes or No");
 			userResponse = scan.next();
 				if(userResponse.equalsIgnoreCase("Yes")) {
 					additionCall = true;
@@ -61,13 +61,12 @@ public class ArrDataTest {
 						userResponse = scan.next();
 					System.out.println("\nWhere would you like to add the new element? You can add it in this range: 0 through " + (myData.size()) + "." );
 						numInp = inputMismatchInt(scan);
-						ensureBoundNotExceeded(numInp, (myData.size()), removalCall, additionCall);
+						ensureBoundNotExceeded(numInp, (myData.size()), removalCall, additionCall, scan);
 						myData.add(numInp, userResponse);
 					System.out.println("Here is your new list: " + myData);
 					additionCall = false;
 				}
 	}
-	
 	public static int inputMismatchInt(Scanner scan) {
 	    boolean canPass = false;
 	    int userInp = 0;
